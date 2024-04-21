@@ -1,18 +1,18 @@
-import React, { Component } from "react";
-
-export default class Product extends Component {
-  render() {
-    return (
-      <div class="shop-item">
-        <span class="shop-item-title">{this.props.title}</span>
-        <img class="shop-item-image" src={this.props.img} alt="productImg" />
-        <div class="shop-item-details">
-          <span class="shop-item-price">${this.props.price}</span>
-          <button onClick={this.props.addToCartHandler.bind(this, this.props.id)} class="btn btn-primary shop-item-button" type="button">
-            ADD TO CART
-          </button>
-        </div>
+export default function Product(props) {
+  return (
+    <div className="shop-item">
+      <span className="shop-item-title">{props.title}</span>
+      <img className="shop-item-image" src={props.img} alt="productImg" />
+      <div className="shop-item-details">
+        <span className="shop-item-price">${props.price}</span>
+        <button
+          onClick={() => props.addToCartHandler(props.id)}
+          className="btn btn-primary shop-item-button"
+          type="button"
+        >
+          ADD TO CART
+        </button>
       </div>
-    );
-  }
+    </div>
+  );
 }
